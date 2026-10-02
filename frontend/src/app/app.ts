@@ -341,7 +341,7 @@ export class App {
     {
       title: 'PROJECTS.PORTFOLIO.TITLE',
       description: 'PROJECTS.PORTFOLIO.DESCRIPTION',
-      image: 'images/projects/protfolio.png',
+      image: 'images/projects/profo.jpeg',
       tech: [
         {
           name: 'Angular',
@@ -358,7 +358,7 @@ export class App {
     {
       title: 'PROJECTS.AUTH_FIREBASE.TITLE',
       description: 'PROJECTS.AUTH_FIREBASE.DESCRIPTION',
-      image: 'images/projects/firebase-auth.jpeg',
+      image: 'images/projects/firebase-auth.jpg',
       tech: [
         {
           name: 'Angular',
@@ -375,7 +375,7 @@ export class App {
     {
       title: 'PROJECTS.EQUIPMENT.TITLE',
       description: 'PROJECTS.EQUIPMENT.DESCRIPTION',
-      image: 'images/projects/equipment.jpeg',
+      image: 'images/projects/equip.jpg',
       tech: [
         {
           name: 'Laravel',
@@ -392,7 +392,7 @@ export class App {
     {
       title: 'PROJECTS.HELP_DESK.TITLE',
       description: 'PROJECTS.HELP_DESK.DESCRIPTION',
-      image: 'images/projects/help-desk.jpeg',
+      image: 'images/projects/help.jpg',
       tech: [
         {
           name: 'Laravel API',
