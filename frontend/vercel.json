@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/profolio",
+  "outputDirectory": "dist/profolio/browser",
   "rewrites": [
     {
       "source": "/(.*)",
