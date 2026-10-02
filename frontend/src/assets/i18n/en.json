@@ -40,7 +40,7 @@
     "EMAIL": "Email",
     "PHONE": "Phone / WhatsApp",
     "LOCATION": "Location",
-    "FORM_NAME": "Name",
+    "FORM_NAME": "Name & Firstname",
     "FORM_EMAIL": "Email",
     "FORM_MESSAGE": "Message",
     "SEND": "Send message",
