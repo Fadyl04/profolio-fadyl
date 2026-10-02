@@ -1,0 +1,420 @@
+<p-toast />
+
+<!-- HEADER -->
+<header class="header">
+  <span class="header__logo">
+    <img
+      src="logo-fadyl.svg"
+      class="header__logo-icon"
+      width="32"
+      height="36"
+      alt=""
+    />
+    <span>Fadyl</span>
+  </span>
+
+  <nav class="header__nav" [class.header__nav--open]="menuOpen">
+    <a *ngFor="let link of navLinks" (click)="scrollTo(link.anchor)">{{ link.label | translate }}</a>
+  </nav>
+
+  <div class="header__actions">
+    <button type="button" class="header__icon-btn" (click)="changeLanguage(currentLanguage === 'fr' ? 'en' : 'fr')" aria-label="Changer de langue">
+      {{ currentLanguage === 'fr' ? 'EN' : 'FR' }}
+    </button>
+
+    <button type="button" class="header__icon-btn" (click)="toggleTheme()" aria-label="Changer de thème">
+      <i class="pi" [ngClass]="isDarkMode ? 'pi-sun' : 'pi-moon'"></i>
+    </button>
+
+    <p-button class="header__cta" [label]="'UI.CONTACT_ME' | translate" size="small" (onClick)="scrollTo('contact')" />
+
+    <button type="button" class="header__icon-btn header__burger" (click)="menuOpen = !menuOpen"
+            [attr.aria-expanded]="menuOpen" aria-label="Menu">
+      <i class="pi" [ngClass]="menuOpen ? 'pi-times' : 'pi-bars'"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="accueil" class="hero">
+    <div class="hero__content">
+      <span class="hero__badge"><i class="pi pi-sparkles"></i> {{ 'UI.GREETING' | translate }}</span>
+
+      <h1 class="hero__title">
+        {{ firstName }} <span class="hero__title--accent">{{ lastName }}</span>
+      </h1>
+
+      <h2 class="hero__role">{{ role | translate }}</h2>
+
+      <p class="hero__description">{{ description | translate }}</p>
+
+      <div class="hero__stack">
+        @for (tech of techStack; track tech.name) {
+          <div class="tech-pill">
+            <i [class]="tech.icon"></i>
+            <span>{{ tech.name }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="hero__actions">
+        <p-button [label]="'UI.VIEW_PROJECTS' | translate" icon="pi pi-arrow-right" iconPos="right"
+                  styleClass="hero__btn-primary" (onClick)="scrollTo('projets')" />
+        <p-button [label]="'UI.CONTACT_ME' | translate" icon="pi pi-envelope" [outlined]="true" (onClick)="scrollTo('contact')" />
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat" *ngFor="let stat of stats">
+          <i [class]="stat.icon"></i>
+          <div>
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__shape hero__shape--1"></div>
+      <div class="hero__shape hero__shape--2"></div>
+      <!-- <img src="profile/profil.png" alt="Photo de Fadyl" class="hero__photo" /> -->
+      <div class="hero__photo-wrapper">
+        <img src="profile/profil.png" alt="Photo de Fadyl" class="hero__photo" />
+      </div>
+
+      <div class="hero__floating-card hero__floating-card--top">
+        <i class="pi pi-code"></i> {{ 'UI.CLEAN_CODE' | translate }}<br />{{ 'UI.BETTER_FUTURE' | translate }}
+      </div>
+
+      <div class="hero__socials">
+        <a href="https://github.com/Fadyl04" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="pi pi-github"></i></a>
+        <a href="https://www.linkedin.com/in/fadyl-bouraima-326847234" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="apropos" class="section about">
+    <span class="section__eyebrow">{{ 'UI.ABOUT_ME' | translate }}</span>
+
+    <div class="about__grid">
+      <div class="about__text">
+        <h2 class="section__title">{{ aboutTitle | translate }}</h2>
+        <p class="section__description">{{ aboutDescription | translate }}</p>
+
+        <ul class="about__points">
+          <li *ngFor="let point of aboutPoints">
+            <i class="pi pi-check-circle"></i> {{ point | translate }}
+          </li>
+        </ul>
+
+        <p-button [label]="'UI.DOWNLOAD_CV' | translate" icon="pi pi-download" [outlined]="true" (onClick)="downloadCV()" />
+      </div>
+
+      <div class="about__image">
+        <img src="images/workspace.png" alt="Espace de travail de Fadyl" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATIONS -->
+  <section id="formations" class="section">
+    <div class="section__heading formation__heading">
+      <span class="section__eyebrow">{{ 'UI.EDUCATION_EYEBROW' | translate }}</span>
+      <h2 class="section__title">{{ 'UI.EDUCATION_TITLE' | translate }}</h2>
+      <p class="section__description">{{ 'UI.EDUCATION_DESC' | translate }}</p>
+    </div>
+
+    <div class="formation__timeline">
+      <div class="formation__item" *ngFor="let education of educations; let last = last">
+
+        <div class="formation__timeline-marker">
+          <div class="formation__icon">
+            <i [class]="education.icon"></i>
+          </div>
+
+          <div class="formation__line" *ngIf="!last"></div>
+        </div>
+
+        <article class="formation__card">
+          <!-- Date + type -->
+          <div class="formation__card-top">
+            <span class="formation__period">{{ education.period }}</span>
+
+            <span class="formation__badge"
+                  [class.formation__badge--certification]="education.type === 'certification'">
+              <i [class]="education.type === 'certification' ? 'pi pi-verified' : 'pi pi-book'"></i>
+              {{ (education.type === 'certification' ? 'UI.CERTIFICATION' : 'UI.FORMATION') | translate }}
+            </span>
+          </div>
+
+          <!-- Diplôme -->
+          <h3 class="formation__diploma">{{ education.diploma | translate }}</h3>
+
+          <!-- Établissement + ville -->
+          <div class="formation__school">
+            <span>
+              <i class="pi pi-building"></i>
+              {{ education.school | translate }}
+            </span>
+
+            <span class="formation__city">
+              <i class="pi pi-map-marker"></i>
+              {{ education.city }}
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="formation__description">{{ education.description | translate }}</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="competences" class="section">
+    <span class="section__eyebrow">{{ 'UI.SKILLS_EYEBROW' | translate }}</span>
+    <h2 class="section__title">{{ 'UI.SKILLS_TITLE' | translate }}</h2>
+
+    <div class="skills__grid">
+      <div class="skills__card" *ngFor="let skill of skills">
+        <div class="skills__card-header">
+          <div class="skills__icon">
+            <i [class]="skill.icon"></i>
+          </div>
+
+          <div class="skills__info">
+            <span class="skills__name">{{ skill.name }}</span>
+            <span class="skills__level">{{ skill.level }}%</span>
+          </div>
+        </div>
+
+        <p-progressbar [value]="skill.level" [showValue]="false" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets" class="section projects">
+    <div class="section__heading projects__heading">
+      <span class="section__eyebrow">{{ 'UI.PROJECTS_EYEBROW' | translate }}</span>
+      <h2 class="section__title">{{ 'UI.PROJECTS_TITLE' | translate }}</h2>
+      <p class="section__description">{{ 'UI.PROJECTS_DESC' | translate }}</p>
+    </div>
+
+    <div class="projects__grid">
+      <article class="project-card" *ngFor="let project of projects">
+
+        <!-- Image -->
+        <div class="project-card__image-wrapper">
+          <img
+            *ngIf="project.image"
+            [src]="project.image"
+            [alt]="(project.title | translate)"
+            class="project-card__image"
+          />
+
+          <div *ngIf="!project.image" class="project-card__image-placeholder">
+            <i class="pi pi-code"></i>
+            <span>{{ 'UI.PROJECT_PREVIEW' | translate }}</span>
+          </div>
+
+          <!-- Overlay (survol uniquement, masqué sur tactile) -->
+          <div class="project-card__overlay">
+            <a
+              *ngIf="project.link_github"
+              [href]="project.link_github"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card__view"
+              [attr.aria-label]="project.title | translate"
+            >
+              <i class="devicon-github-original"></i>
+            </a>
+
+            <span *ngIf="!project.link_github" class="project-card__view project-card__view--disabled">
+              <i class="pi pi-code"></i>
+            </span>
+          </div>
+
+          <!-- Type du projet -->
+          <span class="project-card__type"
+                [class.project-card__type--professional]="project.type === 'professionnel'">
+            <i [class]="project.type === 'professionnel' ? 'pi pi-briefcase' : 'pi pi-user'"></i>
+            {{ (project.type === 'professionnel' ? 'UI.PROFESSIONAL' : 'UI.PERSONAL') | translate }}
+          </span>
+        </div>
+
+        <!-- Contenu -->
+        <div class="project-card__content">
+          <h3 class="project-card__title">{{ project.title | translate }}</h3>
+          <p class="project-card__description">{{ project.description | translate }}</p>
+
+          <div class="project-card__technologies">
+            <span class="project-card__technology"
+                  *ngFor="let technology of project.tech"
+                  [title]="technology.name">
+              <i [class]="technology.icon"></i>
+              <span>{{ technology.name }}</span>
+            </span>
+          </div>
+
+          <div class="project-card__footer">
+            <span class="project-card__stack-label">{{ 'UI.TECH_STACK' | translate }}</span>
+
+            <a
+              *ngIf="project.link_github"
+              [href]="project.link_github"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card__link"
+            >
+              GitHub
+              <i class="pi pi-arrow-up-right"></i>
+            </a>
+
+            <span *ngIf="!project.link_github" class="project-card__link project-card__link--disabled">
+              {{ 'UI.COMING_SOON' | translate }}
+              <i class="pi pi-clock"></i>
+            </span>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="section__heading services__heading">
+      <span class="section__eyebrow">{{ 'UI.SERVICES_EYEBROW' | translate }}</span>
+      <h2 class="section__title">{{ 'UI.SERVICES_TITLE' | translate }}</h2>
+      <p class="section__description">{{ 'UI.SERVICES_DESC' | translate }}</p>
+    </div>
+
+    <div class="services__grid">
+      <article class="service-card" *ngFor="let service of services; let i = index">
+        <span class="service-card__number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+
+        <div class="service-card__icon">
+          <i [class]="service.icon"></i>
+        </div>
+
+        <div class="service-card__content">
+          <h3 class="service-card__title">{{ service.title | translate }}</h3>
+          <p class="service-card__description">{{ service.description | translate }}</p>
+
+          <div class="service-card__technologies">
+            <span class="service-card__technology"
+                  *ngFor="let technology of service.techno"
+                  [title]="technology.name">
+              <i [class]="technology.icon"></i>
+              <span>{{ technology.name }}</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="service-card__arrow">
+          <i class="pi pi-arrow-up-right"></i>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <span class="section__eyebrow">{{ 'UI.CONTACT_EYEBROW' | translate }}</span>
+    <h2 class="section__title">{{ 'UI.CONTACT_TITLE' | translate }}</h2>
+    <p class="section__description">{{ 'UI.CONTACT_DESC' | translate }}</p>
+
+    <div class="contact__grid">
+      <div class="contact__info">
+        <button type="button" class="contact__item" (click)="openMail()">
+          <i class="pi pi-envelope"></i>
+          <div>
+            <span class="contact__label">{{ 'UI.EMAIL' | translate }}</span>
+            <span class="contact__value">{{ contactInfo.email }}</span>
+          </div>
+        </button>
+
+        <button type="button" class="contact__item" (click)="openWhatsapp()">
+          <i class="pi pi-whatsapp"></i>
+          <div>
+            <span class="contact__label">{{ 'UI.PHONE' | translate }}</span>
+            <span class="contact__value">{{ contactInfo.phone }}</span>
+          </div>
+        </button>
+
+        <div class="contact__item contact__item--static">
+          <i class="pi pi-map-marker"></i>
+          <div>
+            <span class="contact__label">{{ 'UI.LOCATION' | translate }}</span>
+            <span class="contact__value">{{ contactInfo.location }}</span>
+          </div>
+        </div>
+
+        <div class="contact__socials">
+          <a [href]="socialLinks.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="pi pi-github"></i></a>
+          <a [href]="socialLinks.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+        </div>
+      </div>
+
+      <form class="contact__form" (ngSubmit)="sendMessage()">
+        <div class="contact__form-row">
+          <input type="text" [placeholder]="'UI.FORM_NAME' | translate" [(ngModel)]="contactForm.name" name="name" required />
+          <input type="email" [placeholder]="'UI.FORM_EMAIL' | translate" [(ngModel)]="contactForm.email" name="email" required />
+        </div>
+
+        <textarea [placeholder]="'UI.FORM_MESSAGE' | translate" rows="5" [(ngModel)]="contactForm.message" name="message" required></textarea>
+
+        <p-button [label]="'UI.SEND' | translate" icon="pi pi-send" iconPos="right" type="submit"
+                  styleClass="w-full" [loading]="isSending" [disabled]="isSending" />
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <span class="footer__logo">Fadyl</span>
+      <p class="footer__tagline">{{ 'UI.FOOTER_TAGLINE' | translate }}</p>
+    </div>
+
+    <nav class="footer__col">
+      <h4 class="footer__heading">{{ 'UI.FOOTER_NAV' | translate }}</h4>
+      <a *ngFor="let link of footerLinks" (click)="scrollTo(link.anchor)">{{ link.label | translate }}</a>
+    </nav>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">{{ 'UI.FOOTER_CONTACT' | translate }}</h4>
+      <a (click)="openMail()"><i class="pi pi-envelope"></i> {{ contactInfo.email }}</a>
+      <a (click)="openWhatsapp()"><i class="pi pi-whatsapp"></i> {{ contactInfo.phone }}</a>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">{{ 'UI.FOOTER_SOCIALS' | translate }}</h4>
+      <div class="footer__socials">
+        <a [href]="socialLinks.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="pi pi-github"></i>
+        </a>
+        <a [href]="socialLinks.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="pi pi-linkedin"></i>
+        </a>
+        <a (click)="openWhatsapp()" aria-label="WhatsApp">
+          <i class="pi pi-whatsapp"></i>
+        </a>
+        <a (click)="openMail()" aria-label="Email">
+          <i class="pi pi-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <span>© {{ currentYear }} Fadyl BOURAIMA. {{ 'UI.FOOTER_RIGHTS' | translate }}</span>
+  </div>
+</footer>

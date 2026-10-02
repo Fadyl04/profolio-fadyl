@@ -1,0 +1,157 @@
+{
+  "NAV": {
+    "HOME": "Accueil",
+    "ABOUT": "À propos",
+    "EDUCATION": "Formations",
+    "SKILLS": "Compétences",
+    "PROJECTS": "Projets",
+    "SERVICES": "Services",
+    "CONTACT": "Contact"
+  },
+  "UI": {
+    "GREETING": "Bonjour, je suis",
+    "VIEW_PROJECTS": "Voir mes projets",
+    "CONTACT_ME": "Me contacter",
+    "CLEAN_CODE": "Clean code",
+    "BETTER_FUTURE": "Better future",
+    "ABOUT_ME": "À propos de moi",
+    "DOWNLOAD_CV": "Télécharger mon CV",
+    "EDUCATION_EYEBROW": "Formations & Certifications",
+    "EDUCATION_TITLE": "Mon parcours académique et mes formations",
+    "EDUCATION_DESC": "Un parcours construit autour de l'informatique, du développement logiciel et de l'acquisition continue de nouvelles compétences.",
+    "FORMATION": "Formation",
+    "CERTIFICATION": "Certification",
+    "SKILLS_EYEBROW": "Compétences",
+    "SKILLS_TITLE": "Des outils modernes pour des solutions performantes",
+    "PROJECTS_EYEBROW": "Projets",
+    "PROJECTS_TITLE": "Des projets qui transforment les idées en solutions",
+    "PROJECTS_DESC": "Découvrez une sélection de projets personnels et professionnels réalisés autour du développement web, de la conception d'applications et de l'intégration de technologies modernes.",
+    "PROJECT_PREVIEW": "Aperçu du projet",
+    "PERSONAL": "Personnel",
+    "PROFESSIONAL": "Professionnel",
+    "TECH_STACK": "Stack technique",
+    "COMING_SOON": "Projet à venir",
+    "SERVICES_EYEBROW": "Services",
+    "SERVICES_TITLE": "Des solutions digitales pensées pour vos besoins",
+    "SERVICES_DESC": "De la conception au développement, je transforme vos idées en solutions web modernes, performantes et évolutives.",
+    "CONTACT_EYEBROW": "Contact",
+    "CONTACT_TITLE": "Un projet ? N'hésitez pas à me contacter.",
+    "CONTACT_DESC": "Je serai ravi d'échanger avec vous.",
+    "EMAIL": "Email",
+    "PHONE": "Téléphone / WhatsApp",
+    "LOCATION": "Localisation",
+    "FORM_NAME": "Nom",
+    "FORM_EMAIL": "Email",
+    "FORM_MESSAGE": "Message",
+    "SEND": "Envoyer le message",
+    "FOOTER_NAV": "Navigation",
+    "FOOTER_CONTACT": "Contact",
+    "FOOTER_SOCIALS": "Réseaux",
+    "FOOTER_TAGLINE": "Code • Innovation • Impact",
+    "FOOTER_RIGHTS": "Tous droits réservés."
+  },
+  "HERO": {
+    "ROLE": "Développeur Web Full-Stack",
+    "DESCRIPTION": "Je transforme des idées en applications web modernes, performantes et sécurisées. Passionné par la technologie, j'aide les entreprises et les particuliers à concrétiser leurs projets digitaux."
+  },
+  "STATS": {
+    "YEARS": "Années d'expérience",
+    "PROJECTS": "Projets réalisés",
+    "SATISFACTION": "Satisfaction client"
+  },
+  "ABOUT": {
+    "TITLE": "Une passion pour le développement et l'innovation",
+    "DESCRIPTION": "Je suis BOURAIMA Fadyl, développeur web full-stack avec une solide expérience dans le développement d'applications modernes et évolutives. J'aime résoudre des problèmes, apprendre de nouvelles technologies et construire des solutions utiles qui ont un impact réel.",
+    "POINTS": {
+      "PASSIONATE": "Développeur passionné",
+      "LEARNING": "Toujours en apprentissage",
+      "OPPORTUNITIES": "Ouvert aux opportunités"
+    }
+  },
+  "EDUCATION": {
+    "NATIONAL_EXAM": {
+      "DIPLOMA": "Examen national de Licence Professionnelle",
+      "SCHOOL": "UATM GASA Formation",
+      "DESCRIPTION": "Attestation de succès de l'examen national en Systèmes Informatiques et Logiciels."
+    },
+    "BACHELOR": {
+      "DIPLOMA": "Attestation de Reussite de Licence Professionnelle en Systèmes Informatiques et Logiciels",
+      "SCHOOL": "UATM GASA Formation",
+      "DESCRIPTION": "Formation approfondie en conception et développement logiciel."
+    },
+    "BACHELOR_PATH": {
+      "DIPLOMA": "Cycle Licence Professionnelle — Systèmes Informatiques et Logiciels",
+      "SCHOOL": "UATM GASA Formation",
+      "DESCRIPTION": "Trois années consacrées à la programmation, aux bases de données et à l'architecture logicielle."
+    },
+    "MAINTENANCE": {
+      "DIPLOMA": "Formation en Maintenance Informatique",
+      "SCHOOL": "ZC FIFA",
+      "DESCRIPTION": "Bases en maintenance matérielle et logicielle."
+    },
+    "BACCALAUREAT": {
+      "DIPLOMA": "Baccalauréat Série D",
+      "SCHOOL": "Lycée Mathieu Bouké",
+      "DESCRIPTION": "Bachelier de l'enseignement du second degré."
+    }
+  },
+  "PROJECTS": {
+    "BENIN_TOURISME": {
+      "TITLE": "Bénin Tourisme (en cours)",
+      "DESCRIPTION": "Plateforme web dédiée à la découverte des sites touristiques et à la participation aux événements culturels du Bénin."
+    },
+    "PORTFOLIO": {
+      "TITLE": "Portfolio Personnel",
+      "DESCRIPTION": "Mon portfolio personnel, mettant en avant mes compétences, projets et expériences professionnelles."
+    },
+    "AUTH_FIREBASE": {
+      "TITLE": "Auth Firebase",
+      "DESCRIPTION": "Authentification sécurisée avec Firebase."
+    },
+    "EQUIPMENT": {
+      "TITLE": "Équipements, Matériels et Fournisseurs",
+      "DESCRIPTION": "Plateforme web de gestion des équipements, matériels et fournisseurs pour Quality Corporate."
+    },
+    "HELP_DESK": {
+      "TITLE": "Help Desk de Quality Corporate",
+      "DESCRIPTION": "Plateforme web de gestion du support technique et des tickets."
+    }
+  },
+  "SERVICES": {
+    "FULL_STACK": {
+      "TITLE": "Développement Full-Stack",
+      "DESCRIPTION": "Solutions complètes de bout en bout, du frontend à la base de données."
+    },
+    "REST_API": {
+      "TITLE": "Développement d'API REST",
+      "DESCRIPTION": "API sécurisées avec NestJS, Express ou Laravel selon le besoin."
+    },
+    "FIREBASE": {
+      "TITLE": "Intégration Firebase",
+      "DESCRIPTION": "Authentification, Firestore, notifications et plus encore."
+    },
+    "BUG_FIXING": {
+      "TITLE": "Correction de bugs",
+      "DESCRIPTION": "Résolution rapide de vos problèmes Angular, TypeScript et backend."
+    },
+    "CICD": {
+      "TITLE": "Déploiement CI/CD",
+      "DESCRIPTION": "Mise en ligne automatisée et fiable de vos sites et applications."
+    },
+    "SEO": {
+      "TITLE": "Référencement (SEO)",
+      "DESCRIPTION": "Optimisation pour améliorer la visibilité sur les moteurs de recherche."
+    },
+    "MAINTENANCE": {
+      "TITLE": "Maintenance informatique",
+      "DESCRIPTION": "Suivi, mises à jour et support continu pour vos applications."
+    }
+  },
+  "CONTACT": {
+    "WHATSAPP_MESSAGE": "Bonjour Fadyl, je vous contacte depuis votre portfolio.",
+    "SUCCESS": "Message envoyé",
+    "SUCCESS_DETAIL": "Je vous répondrai dans les plus brefs délais.",
+    "ERROR": "Erreur",
+    "ERROR_DETAIL": "L'envoi a échoué. Réessaie plus tard."
+  }
+}

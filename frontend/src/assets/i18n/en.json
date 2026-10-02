@@ -1,0 +1,157 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "EDUCATION": "Education",
+    "SKILLS": "Skills",
+    "PROJECTS": "Projects",
+    "SERVICES": "Services",
+    "CONTACT": "Contact"
+  },
+  "UI": {
+    "GREETING": "Hello, I'm",
+    "VIEW_PROJECTS": "View my projects",
+    "CONTACT_ME": "Contact me",
+    "CLEAN_CODE": "Clean code",
+    "BETTER_FUTURE": "Better future",
+    "ABOUT_ME": "About me",
+    "DOWNLOAD_CV": "Download my CV",
+    "EDUCATION_EYEBROW": "Education & Certifications",
+    "EDUCATION_TITLE": "My academic background and training",
+    "EDUCATION_DESC": "A path built around computer science, software development, and continuous learning.",
+    "FORMATION": "Education",
+    "CERTIFICATION": "Certification",
+    "SKILLS_EYEBROW": "Skills",
+    "SKILLS_TITLE": "Modern tools for high-performance solutions",
+    "PROJECTS_EYEBROW": "Projects",
+    "PROJECTS_TITLE": "Projects that turn ideas into solutions",
+    "PROJECTS_DESC": "A selection of personal and professional projects built around web development, application design, and modern technology integration.",
+    "PROJECT_PREVIEW": "Project preview",
+    "PERSONAL": "Personal",
+    "PROFESSIONAL": "Professional",
+    "TECH_STACK": "Tech stack",
+    "COMING_SOON": "Coming soon",
+    "SERVICES_EYEBROW": "Services",
+    "SERVICES_TITLE": "Digital solutions designed for your needs",
+    "SERVICES_DESC": "From design to development, I turn your ideas into modern, high-performing, scalable web solutions.",
+    "CONTACT_EYEBROW": "Contact",
+    "CONTACT_TITLE": "Have a project? Feel free to reach out.",
+    "CONTACT_DESC": "I'd be glad to hear from you.",
+    "EMAIL": "Email",
+    "PHONE": "Phone / WhatsApp",
+    "LOCATION": "Location",
+    "FORM_NAME": "Name",
+    "FORM_EMAIL": "Email",
+    "FORM_MESSAGE": "Message",
+    "SEND": "Send message",
+    "FOOTER_NAV": "Navigation",
+    "FOOTER_CONTACT": "Contact",
+    "FOOTER_SOCIALS": "Social",
+    "FOOTER_TAGLINE": "Code • Innovation • Impact",
+    "FOOTER_RIGHTS": "All rights reserved."
+  },
+  "HERO": {
+    "ROLE": "Full-Stack Web Developer",
+    "DESCRIPTION": "I turn ideas into modern, high-performing, secure web applications. Passionate about technology, I help businesses and individuals bring their digital projects to life."
+  },
+  "STATS": {
+    "YEARS": "Years of experience",
+    "PROJECTS": "Completed projects",
+    "SATISFACTION": "Client satisfaction"
+  },
+  "ABOUT": {
+    "TITLE": "A passion for development and innovation",
+    "DESCRIPTION": "I'm BOURAIMA Fadyl, a full-stack web developer with solid experience building modern, scalable applications. I enjoy solving problems, learning new technologies, and building useful solutions with real impact.",
+    "POINTS": {
+      "PASSIONATE": "Passionate developer",
+      "LEARNING": "Always learning",
+      "OPPORTUNITIES": "Open to opportunities"
+    }
+  },
+  "EDUCATION": {
+    "NATIONAL_EXAM": {
+      "DIPLOMA": "National Professional Bachelor's Degree Examination",
+      "SCHOOL": "UATM GASA Formation",
+      "DESCRIPTION": "Certificate of successful completion of the national examination in Computer Systems and Software."
+    },
+    "BACHELOR": {
+      "DIPLOMA": "Certificate of Completion of the Professional Bachelor's Degree in Computer Systems and Software",
+      "SCHOOL": "UATM GASA Formation",
+      "DESCRIPTION": "In-depth training in software design and development."
+    },
+    "BACHELOR_PATH": {
+      "DIPLOMA": "Professional Bachelor's Program — Computer Systems and Software",
+      "SCHOOL": "UATM GASA Formation",
+      "DESCRIPTION": "Three years focused on programming, databases, and software architecture."
+    },
+    "MAINTENANCE": {
+      "DIPLOMA": "IT Maintenance Training",
+      "SCHOOL": "ZC FIFA",
+      "DESCRIPTION": "Fundamentals of hardware/software maintenance."
+    },
+    "BACCALAUREAT": {
+      "DIPLOMA": "High School Diploma, Science Track",
+      "SCHOOL": "Mathieu Bouke High School",
+      "DESCRIPTION": "Holder of a secondary education diploma."
+    }
+  },
+  "PROJECTS": {
+    "BENIN_TOURISME": {
+      "TITLE": "Benin Tourism (in progress)",
+      "DESCRIPTION": "Web platform for discovering tourist sites and taking part in Benin's cultural events."
+    },
+    "PORTFOLIO": {
+      "TITLE": "Personal Portfolio",
+      "DESCRIPTION": "My personal portfolio, showcasing my skills, projects, and professional experience."
+    },
+    "AUTH_FIREBASE": {
+      "TITLE": "Firebase Auth",
+      "DESCRIPTION": "Secure authentication with Firebase."
+    },
+    "EQUIPMENT": {
+      "TITLE": "Equipment & Suppliers Management",
+      "DESCRIPTION": "Web platform for managing equipment, materials, and suppliers for Quality Corporate."
+    },
+    "HELP_DESK": {
+      "TITLE": "Quality Corporate Help Desk",
+      "DESCRIPTION": "Web platform for managing technical support and tickets."
+    }
+  },
+  "SERVICES": {
+    "FULL_STACK": {
+      "TITLE": "Full-Stack Development",
+      "DESCRIPTION": "End-to-end solutions, from frontend to database."
+    },
+    "REST_API": {
+      "TITLE": "REST API Development",
+      "DESCRIPTION": "Secure APIs with NestJS, Express, or Laravel as needed."
+    },
+    "FIREBASE": {
+      "TITLE": "Firebase Integration",
+      "DESCRIPTION": "Authentication, Firestore, notifications, and more."
+    },
+    "BUG_FIXING": {
+      "TITLE": "Bug Fixing",
+      "DESCRIPTION": "Fast fixes for your Angular, TypeScript, and backend issues."
+    },
+    "CICD": {
+      "TITLE": "CI/CD Deployment",
+      "DESCRIPTION": "Automated, reliable deployment of your sites and applications."
+    },
+    "SEO": {
+      "TITLE": "SEO",
+      "DESCRIPTION": "Optimization to improve visibility on search engines."
+    },
+    "MAINTENANCE": {
+      "TITLE": "IT Maintenance",
+      "DESCRIPTION": "Ongoing monitoring, updates, and support for your applications."
+    }
+  },
+  "CONTACT": {
+    "WHATSAPP_MESSAGE": "Hi Fadyl, I'm reaching out from your portfolio.",
+    "SUCCESS": "Message sent",
+    "SUCCESS_DETAIL": "I'll get back to you as soon as possible.",
+    "ERROR": "Error",
+    "ERROR_DETAIL": "Something went wrong. Please try again later."
+  }
+}

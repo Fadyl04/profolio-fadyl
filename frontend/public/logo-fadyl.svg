@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="144" viewBox="0 0 128 144" fill="none" role="img" aria-labelledby="fadyl-title fadyl-desc">
+  <title id="fadyl-title">Logo Fadyl</title>
+  <desc id="fadyl-desc">Reconstitution vectorielle de l’icône de la navbar : emblème hexagonal cyan, bleu et violet, avec un monogramme sombre. Fond transparent.</desc>
+  <defs>
+    <linearGradient id="fadyl-roof" x1="37" y1="13" x2="99" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00D5F7"/>
+      <stop offset=".48" stop-color="#08B6F6"/>
+      <stop offset=".8" stop-color="#1479F8"/>
+      <stop offset="1" stop-color="#4935EA"/>
+    </linearGradient>
+    <linearGradient id="fadyl-face" x1="46" y1="60" x2="69" y2="123" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset=".2" stop-color="#EDFAFF"/>
+      <stop offset=".55" stop-color="#87DFFF"/>
+      <stop offset="1" stop-color="#00BDF2"/>
+    </linearGradient>
+    <linearGradient id="fadyl-left" x1="21" y1="68" x2="51" y2="125" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FCFF"/>
+      <stop offset=".46" stop-color="#8DEAFF"/>
+      <stop offset="1" stop-color="#00C7EE"/>
+    </linearGradient>
+    <linearGradient id="fadyl-right" x1="106" y1="65" x2="80" y2="126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B08BFF"/>
+      <stop offset=".32" stop-color="#8560F8"/>
+      <stop offset=".7" stop-color="#247CFA"/>
+      <stop offset="1" stop-color="#009FEB"/>
+    </linearGradient>
+    <linearGradient id="fadyl-rim" x1="20" y1="75" x2="89" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BCEFFF"/>
+      <stop offset=".52" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F5EFFF"/>
+    </linearGradient>
+    <linearGradient id="fadyl-base" x1="28" y1="109" x2="104" y2="109" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00C9EA"/>
+      <stop offset=".5" stop-color="#00A8EE"/>
+      <stop offset="1" stop-color="#276CF3"/>
+    </linearGradient>
+    <linearGradient id="fadyl-monogram" x1="38" y1="80" x2="81" y2="99" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06152F"/>
+      <stop offset=".6" stop-color="#030B20"/>
+      <stop offset="1" stop-color="#0C1555"/>
+    </linearGradient>
+  </defs>
+  <!-- Partie supérieure détachée, à facettes. -->
+  <path d="M64 7 112 42Q117 46 112 49L66 44Q64 43 62 44L16 52Q11 53 14 46Z" fill="url(#fadyl-roof)"/>
+  <path d="M64 7 64 34 16 52 14 46Z" fill="#00AEF0" opacity=".46"/>
+  <path d="M64 7 112 42 111 46 64 22 24 46 14 48Z" fill="#37DEFF" opacity=".27"/>
+  <!-- Corps hexagonal et faces du volume. -->
+  <path d="M62 55Q64 54 67 55L111 66Q114 67 114 71V102Q114 105 111 107L67 134Q64 136 61 134L16 107Q13 105 13 102V72Q13 69 17 67Z" fill="url(#fadyl-face)"/>
+  <path d="M17 67 29 76V98L64 119V135L16 107Q13 105 13 102V72Q13 69 17 67Z" fill="url(#fadyl-left)"/>
+  <path d="M95 62 111 66Q114 67 114 71V102Q114 105 111 107L64 135V119L95 99Z" fill="url(#fadyl-right)"/>
+  <path d="M29 98 64 119 105 96 111 107 67 134Q64 136 61 134L17 107Z" fill="url(#fadyl-base)"/>
+  <path d="M23 100V74Q23 71 27 69L58 59Q64 57 70 59L86 64" stroke="url(#fadyl-rim)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Monogramme stylisé, dessiné en tracé : aucune police requise. -->
+  <path d="M38 112Q33 113 33 107V81Q33 73 39 72 46 71 49 79L51 88 64 87 65 76Q65 69 72 69L81 73Q87 76 87 84 87 96 76 100L51 103 49 111Q46 117 38 112Z" fill="url(#fadyl-monogram)"/>
+  <path d="M22 105 64 130 105 105" stroke="#23CEFB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+</svg>

@@ -1,0 +1,195 @@
+@import "devicon/devicon.min.css";
+@import "primeicons/primeicons.css";
+
+/* ================================
+   VARIABLES DU PORTFOLIO
+================================ */
+
+:root {
+  /* Mode clair (par défaut) */
+  --portfolio-bg: #f4f7fb;
+  --portfolio-bg-secondary: #eaf1fa;
+  --portfolio-surface: #ffffff;
+  --portfolio-card-1: #ffffff;
+  --portfolio-card-2: #f3f7fd;
+  --portfolio-floating-bg: rgba(255, 255, 255, 0.92);
+  --portfolio-pill-bg: rgba(0, 168, 255, 0.06);
+  --portfolio-overlay-bg: rgba(255, 255, 255, 0.8);
+  --portfolio-type-badge-bg: rgba(255, 255, 255, 0.9);
+
+  --portfolio-primary: #00a8ff;
+  --portfolio-secondary: #7c3aed;
+  --portfolio-accent: #008559;
+  --portfolio-gold: #ffbe00;
+
+  --portfolio-text: #0b1220;
+  --portfolio-text-muted: #55627a;
+  --portfolio-role-text: #33415c;
+  --portfolio-footer-muted: #7c8aa3;
+
+  --portfolio-border: rgba(0, 168, 255, 0.18);
+
+  --portfolio-gradient: linear-gradient(135deg, #00a8ff 0%, #7c3aed 100%);
+
+  --space-x: max(clamp(20px, 5vw, 64px), calc((100vw - 1280px) / 2));
+  --space-y: clamp(48px, 8vw, 100px);
+}
+
+.app-dark {
+  /* Mode sombre (surcharge) */
+  --portfolio-bg: #020817;
+  --portfolio-bg-secondary: #061426;
+  --portfolio-surface: #0a1930;
+  --portfolio-card-1: rgba(10, 25, 48, 0.98);
+  --portfolio-card-2: rgba(6, 20, 38, 0.96);
+  --portfolio-floating-bg: rgba(20, 27, 46, 0.9);
+  --portfolio-pill-bg: rgba(255, 255, 255, 0.04);
+  --portfolio-overlay-bg: rgba(2, 8, 23, 0.62);
+  --portfolio-type-badge-bg: rgba(2, 8, 23, 0.78);
+
+  --portfolio-text: #ffffff;
+  --portfolio-text-muted: #94a3b8;
+  --portfolio-role-text: #cbd5e1;
+  --portfolio-footer-muted: #5b6b87;
+
+  --portfolio-border: rgba(0, 168, 255, 0.2);
+}
+
+
+/* ================================
+   RESET GLOBAL
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: clip; /* "clip" et non "hidden" : hidden casserait le header sticky */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: clip;
+
+  background: var(--portfolio-bg);
+  color: var(--portfolio-text);
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--portfolio-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--portfolio-primary);
+  border-radius: 10px;
+}
+
+
+/* ================================
+   SELECTION
+================================ */
+
+::selection {
+  background: var(--portfolio-primary);
+  color: #ffffff;
+}
+
+
+/* ================================
+   SECTIONS (partagé par toutes les sections)
+================================ */
+
+.section {
+  width: 100%;
+  padding: var(--space-y) var(--space-x);
+}
+
+.section__heading {
+  max-width: 720px;
+}
+
+.section__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: var(--portfolio-primary);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section__title {
+  margin: 0;
+
+  color: var(--portfolio-text);
+
+  font-size: clamp(28px, 4vw, 42px);
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.section__description {
+  margin: 16px 0 0;
+
+  color: var(--portfolio-text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* ================================
+   ACCESSIBILITÉ : animations réduites
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
