@@ -17,7 +17,7 @@ export const personalInfo = {
   location: 'Porto-Novo, Bénin',
   github: 'github.com/Fadyl04',
   linkedin: 'linkedin.com/in/fadyl-bouraima-326847234',
-  profolioLink: 'https://profolio-fadyl.vercel.app',
+  profolioLink: 'profolio-fadyl.vercel.app',
 };
 
 /** Palette noir et blanc, dans le style minimaliste du CV fourni. */
@@ -255,6 +255,18 @@ function textHeight(doc, text, width, options = {}) {
   return doc.heightOfString(text, { width, ...options });
 }
 
+/** Ajoute HTTPS lorsque l’URL du portfolio est fournie sans protocole. */
+function normalizeHttpUrl(value) {
+  const raw = String(value ?? '').trim();
+  const lower = raw.toLowerCase();
+  const hasHttpScheme = lower.startsWith('http://') || lower.startsWith('https://');
+  const parsed = new URL(hasHttpScheme ? raw : `https://${raw}`);
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+    throw new Error(`URL externe non prise en charge : ${value}`);
+  }
+  return parsed;
+}
+
 function drawRule(doc, x, y, width, color = colors.line, lineWidth = 0.7) {
   doc.moveTo(x, y).lineTo(x + width, y).lineWidth(lineWidth).strokeColor(color).stroke();
 }
@@ -359,6 +371,8 @@ function drawProfileAndPersonal(doc, data) {
   y += profileH + 11;
 
   y = drawSidebarLabel(doc, data.sections.contact, y);
+  const portfolioUrl = normalizeHttpUrl(personalInfo.profolioLink);
+  const portfolioDisplay = `${portfolioUrl.host}${portfolioUrl.pathname === '/' ? '' : portfolioUrl.pathname}${portfolioUrl.search}${portfolioUrl.hash}`;
   const contacts = [
     { kind: 'location', value: data.location },
     { kind: 'email', value: personalInfo.email },
@@ -367,9 +381,8 @@ function drawProfileAndPersonal(doc, data) {
     { kind: 'linkedin', value: personalInfo.linkedin },
     {
       kind: 'portfolio',
-      // Keep the displayed address short while linking to the full HTTPS URL.
-      value: new URL(personalInfo.profolioLink).host,
-      href: personalInfo.profolioLink,
+      value: portfolioDisplay,
+      href: portfolioUrl.href,
     },
   ];
   for (const { kind, value, href } of contacts) {
