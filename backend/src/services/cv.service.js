@@ -17,9 +17,10 @@ export const personalInfo = {
   location: 'Porto-Novo, Bénin',
   github: 'github.com/Fadyl04',
   linkedin: 'linkedin.com/in/fadyl-bouraima-326847234',
+  profolioLink: 'profolio-fadyl.vercel.app',
 };
 
-/** Palette noir et blanc. */
+/** Palette noir et blanc, dans le style minimaliste du CV fourni. */
 export const colors = {
   primary: '#222222',
   primaryDark: '#111111',
@@ -32,7 +33,6 @@ export const colors = {
 };
 
 export const cvData = {
-  
   fr: {
     role: 'Développeur Web Full-Stack',
     location: 'Porto-Novo, Bénin',
@@ -116,6 +116,11 @@ export const cvData = {
         name: 'Bénin Tourisme (En cours)',
         description: 'Plateforme de découverte des sites touristiques et de participation aux événements culturels du Bénin.',
         technologies: 'Angular · Express.js · Prisma · MySQL · PrimeNG',
+      },
+      {
+        name: 'Portfolio personnel',
+        description: 'Site personnel présentant le profil, les compétences, les expériences et les projets.',
+        technologies: 'Angular · PrimeNG · SSR · i18n FR/EN · Express.js',
       },
       {
         name: 'Firebase Auth',
@@ -212,6 +217,11 @@ export const cvData = {
         technologies: 'Angular · Express.js · Prisma · MySQL · PrimeNG',
       },
       {
+        name: 'Personal Portfolio',
+        description: 'Personal website showcasing my profile, skills, experience, and projects.',
+        technologies: 'Angular · PrimeNG · SSR · i18n FR/EN · Express.js',
+      },
+      {
         name: 'Firebase Auth',
         description: 'Secure authentication module designed for user management.',
         technologies: 'Angular · Firebase',
@@ -243,6 +253,18 @@ const FOOTER_Y = 811;
 
 function textHeight(doc, text, width, options = {}) {
   return doc.heightOfString(text, { width, ...options });
+}
+
+/** Ajoute HTTPS lorsque l’URL du portfolio est fournie sans protocole. */
+function normalizeHttpUrl(value) {
+  const raw = String(value ?? '').trim();
+  const lower = raw.toLowerCase();
+  const hasHttpScheme = lower.startsWith('http://') || lower.startsWith('https://');
+  const parsed = new URL(hasHttpScheme ? raw : `https://${raw}`);
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+    throw new Error(`URL externe non prise en charge : ${value}`);
+  }
+  return parsed;
 }
 
 function drawRule(doc, x, y, width, color = colors.line, lineWidth = 0.7) {
@@ -322,6 +344,13 @@ function drawContactIcon(doc, kind, x, y) {
     doc.circle(x + 8.6, y + 7, 0.45).fill('#4A4A4A');
   } else if (kind === 'linkedin') {
     doc.font('Bold').fontSize(8.2).fillColor(colors.white).text('in', x + 2.2, y + 2, { width: 10, height: 10 });
+  } else if (kind === 'portfolio') {
+    // Globe icon for the portfolio website.
+    doc.circle(x + 7, y + 7, 4.25).lineWidth(0.8).strokeColor(colors.white).stroke();
+    doc.ellipse(x + 4.8, y + 2.75, 4.4, 8.5)
+      .lineWidth(0.75).strokeColor(colors.white).stroke();
+    doc.moveTo(x + 3, y + 7).lineTo(x + 11, y + 7)
+      .lineWidth(0.75).strokeColor(colors.white).stroke();
   }
 }
 
@@ -342,20 +371,31 @@ function drawProfileAndPersonal(doc, data) {
   y += profileH + 11;
 
   y = drawSidebarLabel(doc, data.sections.contact, y);
+  const portfolioUrl = normalizeHttpUrl(personalInfo.profolioLink);
+  const portfolioDisplay = `${portfolioUrl.host}${portfolioUrl.pathname === '/' ? '' : portfolioUrl.pathname}${portfolioUrl.search}${portfolioUrl.hash}`;
   const contacts = [
-    ['location', data.location],
-    ['email', personalInfo.email],
-    ['phone', personalInfo.phone],
-    ['github', personalInfo.github],
-    ['linkedin', personalInfo.linkedin],
+    { kind: 'location', value: data.location },
+    { kind: 'email', value: personalInfo.email },
+    { kind: 'phone', value: personalInfo.phone },
+    { kind: 'github', value: personalInfo.github },
+    { kind: 'linkedin', value: personalInfo.linkedin },
+    {
+      kind: 'portfolio',
+      value: portfolioDisplay,
+      href: portfolioUrl.href,
+    },
   ];
-  for (const [kind, value] of contacts) {
+  for (const { kind, value, href } of contacts) {
     const iconX = SIDE_X + 1;
     const textX = SIDE_X + 23;
     drawContactIcon(doc, kind, iconX, y + 1);
     doc.font('Regular').fontSize(7.35).fillColor(colors.text);
     const h = textHeight(doc, value, SIDE_W - 23, { lineGap: 0.65 });
     doc.text(value, textX, y + 1, { width: SIDE_W - 23, lineGap: 0.65 });
+    if (href) {
+      // Make both the icon and its address clickable in the PDF.
+      doc.link(iconX, y + 1, SIDE_W - 2, Math.max(14, h + 2), href);
+    }
     y += Math.max(18, h + 3) + 5;
   }
 
@@ -490,4 +530,4 @@ async function writePdf(lang) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const files = await Promise.all([writePdf('fr'), writePdf('en')]);
   for (const file of files) console.log(`Generated: ${file}`);
-};
+}
