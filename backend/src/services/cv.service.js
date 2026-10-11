@@ -4,9 +4,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PHOTO_PATH = path.join(__dirname, 'assets/photo.png');
-const FONT_REGULAR = path.join(__dirname, 'assets/fonts/DejaVuSans.ttf');
-const FONT_BOLD = path.join(__dirname, 'assets/fonts/DejaVuSans-Bold.ttf');
+const PHOTO_PATH = path.join(__dirname, '../assets/profil/photo.png');
+const FONT_REGULAR = path.join(__dirname, '../assets/fonts/DejaVuSans.ttf');
+const FONT_BOLD = path.join(__dirname, '../assets/fonts/DejaVuSans-Bold.ttf');
 
 /** Coordonnées personnelles partagées par les deux versions. */
 export const personalInfo = {
