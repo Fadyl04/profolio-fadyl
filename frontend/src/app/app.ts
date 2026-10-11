@@ -516,17 +516,31 @@ export class App {
   }
 
   sendMessage(): void {
+    console.log('========== ENVOI DU MESSAGE : DÉBUT ==========');
+
+    console.log('📋 Données du formulaire :', this.contactForm);
+    console.log('📧 Email saisi :', this.contactForm.email);
+    console.log('👤 Nom saisi :', this.contactForm.name);
+    console.log('💬 Message saisi :', this.contactForm.message);
 
     this.isSending = true;
     this.sendSuccess = false;
     this.sendError = '';
 
+    console.log('⏳ État isSending :', this.isSending);
+    console.log('🚀 Appel du service contactService.sendMessage()...');
+
     this.contactService.sendMessage(this.contactForm).subscribe({
       next: (response) => {
-        console.log(' Succès, réponse du serveur :', response);
+        console.log('========== RÉPONSE DU SERVEUR : SUCCÈS ==========');
+        console.log('✅ Réponse complète du backend :', response);
+        console.log('📦 Type de réponse :', typeof response);
 
         this.isSending = false;
         this.sendSuccess = true;
+
+        console.log('✅ État isSending :', this.isSending);
+        console.log('✅ État sendSuccess :', this.sendSuccess);
 
         this.messageService.add({
           severity: 'success',
@@ -535,19 +549,34 @@ export class App {
           life: 5000
         });
 
+        console.log('🔔 Notification de succès affichée.');
+
         this.contactForm = {
           name: '',
           email: '',
           message: ''
         };
+
+        console.log('🧹 Formulaire réinitialisé :', this.contactForm);
+        console.log('========== ENVOI DU MESSAGE : FIN ==========');
       },
 
       error: (err) => {
+        console.error('========== ERREUR LORS DE L’ENVOI ==========');
+        console.error('❌ Erreur complète :', err);
+        console.error('📌 Statut HTTP :', err.status);
+        console.error('📌 Statut textuel :', err.statusText);
+        console.error('📌 Message de l’erreur :', err.message);
+        console.error('📦 Corps de la réponse backend :', err.error);
+        console.error('📌 URL de la requête :', err.url);
 
         this.isSending = false;
+
         this.sendError =
           err.error?.message ||
           this.translate.instant('CONTACT.ERROR_DETAIL');
+
+        console.error('⚠️ Message affiché à l’utilisateur :', this.sendError);
 
         this.messageService.add({
           severity: 'error',
@@ -555,6 +584,9 @@ export class App {
           detail: this.sendError,
           life: 5000
         });
+
+        console.log('🔔 Notification d’erreur affichée.');
+        console.log('========== ENVOI DU MESSAGE : FIN AVEC ERREUR ==========');
       }
     });
   }
@@ -598,9 +630,28 @@ export class App {
   }
 
   downloadCV(): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-    this.cvService.download(this.currentLanguage);
+    console.log('========== TÉLÉCHARGEMENT DU CV : DÉBUT ==========');
 
+    console.log('🌐 Environnement navigateur :', isPlatformBrowser(this.platformId));
+    console.log('🌍 Langue actuelle :', this.currentLanguage);
+
+    if (!isPlatformBrowser(this.platformId)) {
+      console.warn('⚠️ Téléchargement annulé : exécution hors navigateur.');
+      return;
+    }
+
+    console.log('🚀 Appel de cvService.download()...');
+    console.log('📄 Langue du CV demandée :', this.currentLanguage);
+
+    try {
+      this.cvService.download(this.currentLanguage);
+
+      console.log('✅ Méthode cvService.download() appelée avec succès.');
+    } catch (error) {
+      console.error('❌ Erreur lors du téléchargement du CV :', error);
+    }
+
+    console.log('========== TÉLÉCHARGEMENT DU CV : FIN ==========');
   }
 
 }
